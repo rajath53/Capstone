@@ -55,22 +55,21 @@ def main():
 				"totalcharges": totalcharges
 			}
         # Encoding the categorical data
-    df_cat = X_test.select_dtypes("object")
-    for i in df_cat:
-        X_test[i]=oe.fit_transform(X_test[[i]])
+df_cat = X_test.select_dtypes("object")
+for i in df_cat:
+	X_test[i]=oe.fit_transform(X_test[[i]])
+	# Scaling the dataset
+        scaler = StandardScaler()
+        X_test = scaler.fit_transform(X_test)
 
-    # Scaling the dataset
-    scaler = StandardScaler()
-    X_test = scaler.fit_transform(X_test)
 
-
-		pred = model.predict(X_test)[0]
-    if st.button("Predict"):
-        if pred == 1:
-            st.success("Your prediction is: Yes")
-        elif pred == 0:
-            st.success("Your prediction is: No")
-        else:
-            st.error("Invalid prediction value")
+	pred = model.predict(X_test)[0]
+        if st.button("Predict"):
+		if pred == 1:
+			st.success("Your prediction is: Yes")
+                elif pred == 0:
+			st.success("Your prediction is: No")
+                else:
+			st.error("Invalid prediction value")
 if __name__ == '__main__':
 	main()
