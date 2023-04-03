@@ -27,7 +27,7 @@ classifier = pickle.load(model)
 st.title("Telco_Customer_Churn")
 st.header("Predicting Churned or not")
 
-df = pd.read_csv("data.csv")
+df = pd.read_csv("train.csv")
 df = df.head()
 
 nav = st.sidebar.radio("Navigation", ["Home","Prediction","About us"])
