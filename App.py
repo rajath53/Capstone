@@ -1,5 +1,5 @@
 import numpy as np
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import pickle
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import AdaBoostClassifier
@@ -38,16 +38,7 @@ if nav == "Home":
     val = st.slider("Filter df using MonthlyCharges",0,100)
     df=df.loc[df["MonthlyCharges"]>=val]
     
-    graph = st.selectbox("What kind of graph ?", ["MonthlyCharges"])
-    if graph == "MonthlyCharges":
-        fig, ax = plt.subplots()
-        ax.scatter(df['MonthlyCharges'],df['TotalCharges'])
-        plt.title('Scatter')
-        plt.ylim(0)
-        plt.xlabel("MonthlyCharges")
-        plt.ylabel("TotalCharges")
-        st.pyplot(fig)
-
+    
 if nav == "Prediction":
     st.header("Know your Churn")
     gender = st.selectbox('Gender:', ['male', 'female'])
