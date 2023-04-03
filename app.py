@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 
-model = pickle.load( open("C:/Users/ajayb/Downloads/Capstone project_4461/model.pkl",'rb'))
+model = pickle.load( open("model.pkl",'rb'))
 
 def main():
 	add_selectbox = st.sidebar.selectbox(
